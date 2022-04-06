@@ -1,2 +1,2 @@
 # Self Language (API)
-_API REST for use with Self Language_
+_REST API for use with Self Language_
