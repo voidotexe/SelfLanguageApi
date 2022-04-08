@@ -21,6 +21,15 @@ namespace VideoMicroService.Controllers
             _videoService = videoService;
         }
 
+        // Video/Get/abcde
+        [HttpGet("{link}")]
+        public IActionResult Get(string link)
+        {
+            var formattedLink = "https://www.youtube.com/watch?v=" + link;
+
+            return Ok(_videoService.ReadSingle(formattedLink));
+        }
+
         // Video/Get
         [HttpGet]
         public IActionResult Get()

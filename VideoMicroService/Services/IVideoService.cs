@@ -12,5 +12,6 @@ namespace VideoMicroService.Services
     {
         Task<int> Create(Video video);
         object Read();
+        object ReadSingle(string link);
     }
 }
