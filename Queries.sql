@@ -26,6 +26,12 @@ CREATE TABLE Transcriptions(
 	CreatedAt DATETIME2 NOT NULL
 );
 
+CREATE TABLE FavoriteVideos(
+	Id INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+	VideoId INT NOT NULL,
+	UserId NVARCHAR(450) NOT NULL
+);
+
 SELECT v.Id, t.VideoId AS TranscriptionVideoId, s.VideoId AS SubtitleVideoId, Title, Link, Difficulty, v.CreatedBy AS VideoCreatedBy, v.[Language], t.Content AS Transcription, s.Content AS Subtitle
 FROM Videos AS v
 INNER JOIN Transcriptions AS t ON v.Id = t.VideoId

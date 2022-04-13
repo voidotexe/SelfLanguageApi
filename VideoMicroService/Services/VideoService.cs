@@ -34,6 +34,7 @@ namespace VideoMicroService.Services
                           join s in _context.Subtitles on v.Id equals s.VideoId
                           select new
                           {
+			      VideoId = v.Id,
                               v.Title,
                               v.Link,
                               VideoLanguage = v.Language,
@@ -56,6 +57,7 @@ namespace VideoMicroService.Services
                          join s in _context.Subtitles on v.Id equals s.VideoId
                          select new
                          {
+			     VideoId = v.Id,
                              v.Title,
                              v.Link,
                              VideoLanguage = v.Language,
