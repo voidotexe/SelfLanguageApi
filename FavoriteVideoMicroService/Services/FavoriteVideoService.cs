@@ -20,7 +20,7 @@ namespace FavoriteVideoMicroService.Services
             await _context.SaveChangesAsync();
         }
 
-        public bool CheckUserHasSingleFavoriteVideo(int videoId, string userId)
+        public string CheckUserHasSingleFavoriteVideo(int videoId, string userId)
         {
             var favoriteVideo = (from fv in _context.FavoriteVideos
                                 where fv.VideoId == videoId && fv.UserId == userId
@@ -31,10 +31,10 @@ namespace FavoriteVideoMicroService.Services
 
             if (favoriteVideo != null)
             {
-                return true;
+                return "true";
             }
 
-            return false;
+            return "false";
         }
 
         public object Read()

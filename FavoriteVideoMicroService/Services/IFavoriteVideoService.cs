@@ -6,7 +6,7 @@ namespace FavoriteVideoMicroService.Services
     public interface IFavoriteVideoService
     {
         Task Create(FavoriteVideo favoriteVideo);
-        bool CheckUserHasSingleFavoriteVideo(int videoId, string userId);
+        string CheckUserHasSingleFavoriteVideo(int videoId, string userId);
         object Read();
     }
 }

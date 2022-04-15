@@ -29,8 +29,8 @@ namespace FavoriteVideoMicroService
 
             services.AddCors(options =>
             {
-                options.AddPolicy("CorsPolicy", builder =>
-                    builder.WithOrigins("https://localhost:44338")
+                options.AddDefaultPolicy(builder =>
+                    builder.WithOrigins("https://localhost:5004")
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                 );
@@ -50,7 +50,7 @@ namespace FavoriteVideoMicroService
 
             app.UseRouting();
 
-            app.UseCors("CorsPolicy");
+            app.UseCors();
 
             app.UseAuthorization();
 
