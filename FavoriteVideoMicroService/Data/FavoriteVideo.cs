@@ -1,4 +1,9 @@
-﻿#nullable disable
+﻿/*
+ * By: voidotexe
+ * https://www.github.com/voidotexe
+*/
+
+#nullable disable
 
 namespace FavoriteVideoMicroService.Data
 {

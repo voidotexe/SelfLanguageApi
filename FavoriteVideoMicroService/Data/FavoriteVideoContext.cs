@@ -1,4 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿/*
+ * By: voidotexe
+ * https://www.github.com/voidotexe
+*/
+
+using Microsoft.EntityFrameworkCore;
 
 #nullable disable
 

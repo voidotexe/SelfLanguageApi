@@ -34,7 +34,7 @@ namespace VideoMicroService.Services
                           join s in _context.Subtitles on v.Id equals s.VideoId
                           select new
                           {
-			      VideoId = v.Id,
+			                  VideoId = v.Id,
                               v.Title,
                               v.Link,
                               VideoLanguage = v.Language,
@@ -57,7 +57,7 @@ namespace VideoMicroService.Services
                          join s in _context.Subtitles on v.Id equals s.VideoId
                          select new
                          {
-			     VideoId = v.Id,
+			                 VideoId = v.Id,
                              v.Title,
                              v.Link,
                              VideoLanguage = v.Language,
@@ -70,6 +70,22 @@ namespace VideoMicroService.Services
                          }).FirstOrDefault();
             
             return video;
+        }
+
+        public object ReadByIds(int[] videoIds)
+        {
+            var videos = _context.Videos.Where(i => videoIds.Contains(i.Id))
+                                        .Select(v => 
+                                                    new
+                                                    {
+                                                        v.Title,
+                                                        v.Link,
+                                                        v.Language,
+                                                        v.Difficulty,
+                                                        v.CreatedAt
+                                                    });
+
+            return videos;
         }
     }
 }

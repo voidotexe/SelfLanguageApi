@@ -3,8 +3,9 @@
  * https://www.github.com/voidotexe
 */
 
-using VideoMicroService.Data;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using VideoMicroService.Data;
 
 namespace VideoMicroService.Services
 {
@@ -13,5 +14,6 @@ namespace VideoMicroService.Services
         Task<int> Create(Video video);
         object Read();
         object ReadSingle(string link);
+        object ReadByIds(int[] videoIds);
     }
 }

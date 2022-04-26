@@ -1,6 +1,12 @@
-﻿using FavoriteVideoMicroService.Data;
+﻿/*
+ * By: voidotexe
+ * https://www.github.com/voidotexe
+*/
+
+using FavoriteVideoMicroService.Data;
 using FavoriteVideoMicroService.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace FavoriteVideoMicroService.Controllers
 {
@@ -29,9 +35,14 @@ namespace FavoriteVideoMicroService.Controllers
             return Ok(_favoriteVideoService.CheckUserHasSingleFavoriteVideo(videoId, userId));
         }
 
-        [HttpGet]
-        public IActionResult Get()
+        [HttpGet("{userId?}")]
+        public async Task<IActionResult> Get(string userId)
         {
+            if (userId != null)
+            {
+                return Ok(await _favoriteVideoService.ReadByUserId(userId));
+            }
+
             return Ok(_favoriteVideoService.Read());
         }
     }

@@ -21,8 +21,13 @@ namespace VideoMicroService.Controllers
             _videoService = videoService;
         }
 
+        public IActionResult GetByIds([FromQuery(Name = "videoIds")]int[] videoIds)
+        {
+            return Ok(_videoService.ReadByIds(videoIds));
+        }
+
         // Video/Get/abcde
-        [HttpGet("{link}")]
+        [HttpGet("bylink/{link}")]
         public IActionResult Get(string link)
         {
             var formattedLink = "https://www.youtube.com/watch?v=" + link;
