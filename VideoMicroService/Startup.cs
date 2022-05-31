@@ -28,6 +28,15 @@ namespace VideoMicroService
         {
             services.AddControllers();
 
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                    builder.WithOrigins("http://localhost:4200")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                );
+            });
+
             services.AddDbContext<VideoContext>(options =>
                 options.UseSqlServer(Environment.GetEnvironmentVariable("SelfLanguage__ConnectionString"))
             );
@@ -47,6 +56,8 @@ namespace VideoMicroService
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 

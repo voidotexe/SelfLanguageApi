@@ -21,6 +21,11 @@ namespace VideoMicroService.Controllers
             _subtitleService = subtitleService;
         }
 
+        [HttpGet("{videoId}")]
+        public IActionResult GetByVideoId(int videoId) {
+            return Ok(_subtitleService.ReadSingleByVideoId(videoId));
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post(Subtitle subtitle)
         {

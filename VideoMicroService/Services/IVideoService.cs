@@ -13,7 +13,6 @@ namespace VideoMicroService.Services
     {
         Task<int> Create(Video video);
         object Read();
-        object ReadSingle(string link);
-        object ReadByIds(int[] videoIds);
+        object ReadSingle(int id);
     }
 }

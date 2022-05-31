@@ -11,5 +11,6 @@ namespace VideoMicroService.Services
     public interface ISubtitleService
     {
         Task Create(Subtitle subtitle);
+        Subtitle ReadSingleByVideoId(int videoId);
     }
 }

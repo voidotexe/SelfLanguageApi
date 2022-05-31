@@ -30,18 +30,13 @@ namespace VideoMicroService.Services
         public object Read()
         {
             var videos = (from v in _context.Videos
-                          join t in _context.Transcriptions on v.Id equals t.VideoId
-                          join s in _context.Subtitles on v.Id equals s.VideoId
                           select new
                           {
-			                  VideoId = v.Id,
+			                  v.Id,
                               v.Title,
                               v.Link,
-                              VideoLanguage = v.Language,
+                              v.Language,
                               v.Difficulty,
-                              TranscriptionContent = t.Content,
-                              SubtitleContent = s.Content,
-                              SubtitleLanguage = s.Language,
                               v.CreatedBy,
                               v.CreatedAt
                           }).ToList();
@@ -49,43 +44,22 @@ namespace VideoMicroService.Services
             return videos;
         }
 
-        public object ReadSingle(string link)
+        public object ReadSingle(int id)
         {
             var video = (from v in _context.Videos
-                         where v.Link == link
-                         join t in _context.Transcriptions on v.Id equals t.VideoId
-                         join s in _context.Subtitles on v.Id equals s.VideoId
+                         where v.Id == id
                          select new
                          {
-			                 VideoId = v.Id,
+			                 v.Id,
                              v.Title,
                              v.Link,
-                             VideoLanguage = v.Language,
+                             v.Language,
                              v.Difficulty,
-                             TranscriptionContent = t.Content,
-                             SubtitleContent = s.Content,
-                             SubtitleLanguage = s.Language,
                              v.CreatedBy,
                              v.CreatedAt
                          }).FirstOrDefault();
             
             return video;
-        }
-
-        public object ReadByIds(int[] videoIds)
-        {
-            var videos = _context.Videos.Where(i => videoIds.Contains(i.Id))
-                                        .Select(v => 
-                                                    new
-                                                    {
-                                                        v.Title,
-                                                        v.Link,
-                                                        v.Language,
-                                                        v.Difficulty,
-                                                        v.CreatedAt
-                                                    });
-
-            return videos;
         }
     }
 }

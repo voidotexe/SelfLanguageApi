@@ -21,6 +21,21 @@ namespace VideoMicroService.Controllers
             _transcriptionService = transcriptionService;
         }
 
+        [HttpGet("{id}")]
+        public IActionResult Get(int id) {
+            return Ok(_transcriptionService.ReadSingle(id));
+        }
+
+        [HttpGet("{videoId}")]
+        public IActionResult GetByVideoId(int videoId) {
+            return Ok(_transcriptionService.ReadSingleByVideoId(videoId));
+        }
+
+        [HttpGet]
+        public IActionResult Get() {
+            return Ok(_transcriptionService.Read());
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post(Transcription transcription)
         {
