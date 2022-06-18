@@ -5,7 +5,9 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoMicroService", "VideoMicroService\VideoMicroService.csproj", "{DFBD52D7-2F33-42D3-AEAF-5B9E634EF96A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FavoriteVideoMicroService", "FavoriteVideoMicroService\FavoriteVideoMicroService.csproj", "{748C435E-E147-4674-94DE-794026119B8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FavoriteVideoMicroService", "FavoriteVideoMicroService\FavoriteVideoMicroService.csproj", "{748C435E-E147-4674-94DE-794026119B8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountMicroService", "AccountMicroService\AccountMicroService.csproj", "{32FD2DFB-1502-4042-B238-1F650FF78B7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{748C435E-E147-4674-94DE-794026119B8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{748C435E-E147-4674-94DE-794026119B8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{748C435E-E147-4674-94DE-794026119B8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32FD2DFB-1502-4042-B238-1F650FF78B7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32FD2DFB-1502-4042-B238-1F650FF78B7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32FD2DFB-1502-4042-B238-1F650FF78B7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32FD2DFB-1502-4042-B238-1F650FF78B7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
